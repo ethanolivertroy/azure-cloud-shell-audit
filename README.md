@@ -1,93 +1,185 @@
-# Azure Cloud Shell Audit
+# Azure Cloud Shell Security Audit Tool
 
+A comprehensive security audit script designed to run directly in Azure Cloud Shell, checking for compliance with FedRAMP and NIST 800-53 standards while assessing impacts to the CIA (Confidentiality, Integrity, Availability) triad.
 
+## Overview
 
-## Getting started
+This tool helps security engineers:
+- Assess Azure environments against FedRAMP High baseline controls
+- Map findings to NIST 800-53 Rev 5 controls
+- Evaluate security risks using the CIA triad framework
+- Generate actionable remediation guidance
+- Produce compliance reports in multiple formats
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+## Quick Start
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+1. Open [Azure Cloud Shell](https://shell.azure.com) (PowerShell mode)
+2. Clone this repository:
+   ```powershell
+   git clone https://github.com/your-org/azure-cloud-shell-audit.git
+   cd azure-cloud-shell-audit
+   ```
+3. Run the audit:
+   ```powershell
+   ./audit.ps1 -SubscriptionId "your-subscription-id"
+   ```
 
-## Add your files
+## Features
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/topics/git/add_files/#add-files-to-a-git-repository) or push an existing Git repository with the following command:
+### Security Control Coverage
+- **Access Control (AC)**: Account management, access enforcement, least privilege, information flow
+- **Audit & Accountability (AU)**: Audit events, log retention, monitoring, protection of audit information
+- **System & Communications Protection (SC)**: Encryption, network security, boundary protection, transmission integrity
+- **System & Information Integrity (SI)**: Flaw remediation, malicious code protection, integrity monitoring, input validation
+- **Identification & Authentication (IA)**: Multi-factor authentication, identity management
+- **Incident Response (IR)**: Incident handling, monitoring, reporting, response planning
+- **Configuration Management (CM)**: Baseline configuration, change control, component inventory
+- **Risk Assessment (RA)**: Risk assessment process, vulnerability scanning, risk response
+- **Media Protection (MP)**: Secure media transport and handling
 
+### CIA Triad Assessment
+Each finding includes impact ratings for:
+- **Confidentiality**: Risk of unauthorized data disclosure
+- **Integrity**: Risk of unauthorized data modification
+- **Availability**: Risk of service disruption
+
+### Compliance Mapping
+- FedRAMP High baseline controls
+- NIST 800-53 Rev 5 control families
+- Azure-specific implementation guidance
+
+## Usage Examples
+
+### Basic Audit
+```powershell
+# Audit entire subscription
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012"
 ```
-cd existing_repo
-git remote add origin https://gitlab.com/hackIDLE/fedramp/fedramp-testing-public/cloud-shell-scripts/azure-cloud-shell-audit.git
-git branch -M main
-git push -uf origin main
+
+### Targeted Control Assessment
+```powershell
+# Audit only Access Control and Audit families
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" -Controls "AC-*,AU-*"
 ```
 
-## Integrate with your tools
+### CIA-Focused Assessment
+```powershell
+# Focus on high confidentiality impact controls
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" -AssessmentType CIA
+```
 
-- [ ] [Set up project integrations](https://gitlab.com/hackIDLE/fedramp/fedramp-testing-public/cloud-shell-scripts/azure-cloud-shell-audit/-/settings/integrations)
+### Custom Output Format
+```powershell
+# Generate JSON report for automation
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" -OutputFormat JSON
+```
 
-## Collaborate with your team
+### Azure Policy Integration
+```powershell
+# Check current policy compliance
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" -EnablePolicyCompliance
 
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/user/project/merge_requests/auto_merge/)
+# Enable continuous compliance monitoring
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" -EnableContinuousCompliance -NotificationEmail "security@company.com"
+```
 
-## Test and Deploy
+### Advanced Usage Examples
+```powershell
+# Comprehensive audit with all features
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" `
+           -Controls "*" `
+           -OutputFormat HTML `
+           -EnablePolicyCompliance `
+           -EnableContinuousCompliance `
+           -NotificationEmail "security@company.com"
 
-Use the built-in continuous integration in GitLab.
+# Quick security scan focusing on high-risk areas
+./audit.ps1 -SubscriptionId "12345678-1234-1234-1234-123456789012" `
+           -Controls "AC-*,SC-*,SI-*" `
+           -AssessmentType QuickScan
+```
 
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing (SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
+## Output Formats
 
-***
+- **HTML**: Interactive dashboard with findings and remediation (default)
+- **JSON**: Machine-readable format for automation
+- **CSV**: For spreadsheet analysis
+- **Markdown**: For documentation and wikis
 
-# Editing this README
+## Prerequisites
 
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thanks to [makeareadme.com](https://www.makeareadme.com/) for this template.
+- Azure Cloud Shell (recommended) or PowerShell 7.0+
+- Azure PowerShell modules (pre-installed in Cloud Shell)
+- Reader access to target Azure subscription
+- No external dependencies
 
-## Suggestions for a good README
+## Report Structure
 
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
+### Executive Summary
+- Overall compliance status
+- Critical findings count
+- CIA impact distribution
 
-## Name
-Choose a self-explaining name for your project.
+### Technical Details
+- Control-by-control assessment
+- Evidence collected
+- Specific Azure resource findings
 
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
+### Remediation Plan
+- Prioritized action items
+- Implementation guidance
+- Azure service recommendations
 
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
+## Security Considerations
 
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+- **Read-Only Operations**: Script performs no modifications
+- **No Credential Storage**: Uses Azure Cloud Shell authentication
+- **Secure Output**: Sensitive data sanitized in reports
+- **Rate Limiting**: Implements API call throttling
 
-## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+## Extending the Tool
 
-## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
+### Adding New Controls
+1. Add control definition to `config/control-definitions.json`
+2. Implement check function in appropriate module under `modules/controls/`
+3. Update control mapping in `modules/compliance/`
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Custom Compliance Frameworks
+The tool supports adding custom compliance mappings:
+- ISO 27001
+- SOC 2
+- PCI DSS
+- CIS Azure Foundations Benchmark
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+## Troubleshooting
+
+### Common Issues
+
+1. **Authentication Errors**
+   ```powershell
+   Connect-AzAccount
+   Set-AzContext -SubscriptionId "your-subscription-id"
+   ```
+
+2. **Permission Errors**
+   - Ensure you have at least Reader role
+   - For full assessment, Security Reader role recommended
+
+3. **Module Not Found**
+   - Run in Azure Cloud Shell for best compatibility
+   - Or install required modules:
+     ```powershell
+     Install-Module -Name Az -Force
+     ```
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
-
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+See [IMPLEMENTATION_PLAN.md](IMPLEMENTATION_PLAN.md) for development roadmap and contribution guidelines.
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+[Your License Here]
+
+## Support
+
+For issues and feature requests, please use the GitHub issue tracker.

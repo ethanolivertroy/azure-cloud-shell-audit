@@ -1,0 +1,116 @@
+{
+  "controls": {
+    "AC-2": {
+      "family": "Access Control",
+      "title": "Account Management",
+      "description": "The organization manages information system accounts, including establishing, activating, modifying, reviewing, disabling, and removing accounts.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["Azure AD", "RBAC", "Subscriptions"],
+      "automationLevel": "Partial",
+      "ciaTriad": {
+        "confidentiality": "High",
+        "integrity": "Medium",
+        "availability": "Low"
+      }
+    },
+    "AC-3": {
+      "family": "Access Control",
+      "title": "Access Enforcement",
+      "description": "The information system enforces approved authorizations for logical access to information and system resources.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["Azure RBAC", "Resource Locks", "Azure Policy"],
+      "automationLevel": "Full",
+      "ciaTriad": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "Medium"
+      }
+    },
+    "AC-6": {
+      "family": "Access Control",
+      "title": "Least Privilege",
+      "description": "The organization employs the principle of least privilege, allowing only authorized accesses for users.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["Azure RBAC", "PIM", "Custom Roles"],
+      "automationLevel": "Full",
+      "ciaTriad": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "Low"
+      }
+    },
+    "AU-2": {
+      "family": "Audit and Accountability",
+      "title": "Audit Events",
+      "description": "The organization determines that the information system is capable of auditing defined events.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["Azure Monitor", "Activity Logs", "Diagnostic Settings"],
+      "automationLevel": "Full",
+      "ciaTriad": {
+        "confidentiality": "Medium",
+        "integrity": "High",
+        "availability": "Low"
+      }
+    },
+    "SC-7": {
+      "family": "System and Communications Protection",
+      "title": "Boundary Protection",
+      "description": "The information system monitors and controls communications at the external boundary and key internal boundaries.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["NSG", "Azure Firewall", "Application Gateway"],
+      "automationLevel": "Full",
+      "ciaTriad": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "High"
+      }
+    },
+    "SC-8": {
+      "family": "System and Communications Protection",
+      "title": "Transmission Confidentiality and Integrity",
+      "description": "The information system protects the confidentiality and integrity of transmitted information.",
+      "fedrampBaseline": ["Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["TLS", "VPN Gateway", "ExpressRoute"],
+      "automationLevel": "Partial",
+      "ciaTriad": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "Low"
+      }
+    },
+    "SI-4": {
+      "family": "System and Information Integrity",
+      "title": "Information System Monitoring",
+      "description": "The organization monitors the information system to detect attacks, indicators of potential attacks, and unauthorized changes.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["Azure Sentinel", "Security Center", "Monitor"],
+      "automationLevel": "Full",
+      "ciaTriad": {
+        "confidentiality": "Medium",
+        "integrity": "High",
+        "availability": "Medium"
+      }
+    },
+    "IA-2": {
+      "family": "Identification and Authentication",
+      "title": "Identification and Authentication",
+      "description": "The information system uniquely identifies and authenticates organizational users.",
+      "fedrampBaseline": ["Low", "Moderate", "High"],
+      "nist80053Rev": "5",
+      "azureServices": ["Azure AD", "MFA", "Conditional Access"],
+      "automationLevel": "Partial",
+      "ciaTriad": {
+        "confidentiality": "High",
+        "integrity": "High",
+        "availability": "Low"
+      }
+    }
+  }
+}

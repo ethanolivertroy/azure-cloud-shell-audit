@@ -1,0 +1,53 @@
+MIT License
+
+Copyright (c) 2024 Azure Cloud Shell Security Audit Tool Contributors
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+================================================================================
+
+ADDITIONAL DISCLAIMER FOR SECURITY AUDIT TOOL
+
+This software is designed to perform security assessments of Azure environments. 
+Users are responsible for:
+
+1. Ensuring they have proper authorization to audit the Azure resources
+2. Complying with all applicable laws, regulations, and organizational policies
+3. Understanding that audit results are recommendations and may require 
+   professional security expertise for proper interpretation
+4. Verifying the accuracy of findings before taking remediation actions
+5. Maintaining the confidentiality of audit results and any sensitive 
+   information discovered during assessments
+
+The software authors and contributors make no warranties regarding:
+- The completeness or accuracy of security assessments
+- Compliance with specific regulatory requirements (FedRAMP, NIST, etc.)
+- The absence of false positives or false negatives in audit results
+- The suitability for any specific security standards or frameworks
+
+This tool is intended for use by qualified security professionals and should 
+not be considered a substitute for comprehensive security reviews by 
+experienced practitioners.
+
+EXPORT CONTROL NOTICE
+
+This software may be subject to export control laws and regulations. Users are 
+responsible for complying with all applicable export control requirements.
+
+================================================================================
