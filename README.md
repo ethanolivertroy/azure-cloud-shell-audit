@@ -11,6 +11,8 @@ This tool helps security engineers:
 - Generate actionable remediation guidance
 - Produce compliance reports in multiple formats
 
+<img src="graphic.webp" width="500">
+
 ## Quick Start
 
 1. Open [Azure Cloud Shell](https://shell.azure.com) (PowerShell mode)
